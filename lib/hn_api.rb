@@ -1,3 +1,5 @@
+require_relative 'hn/client'
+
 module HN
   class << self
 
