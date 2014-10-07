@@ -1,7 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "HnApi" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+describe HN do
+  describe '.new' do
+    it 'returns an HN::Client' do
+      expect(HN.new).to be_an HN::Client
+    end
   end
 end
