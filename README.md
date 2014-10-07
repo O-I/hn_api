@@ -1,6 +1,25 @@
 # hn_api
+[![Build Status](https://travis-ci.org/O-I/guardian_api.svg?branch=master)](https://travis-ci.org/O-I/guardian_api)
 
-A Ruby wrapper for [the Hacker News API](https://github.com/HackerNews/API). Currently very alpha.
+A Ruby wrapper for [the Hacker News API](https://github.com/HackerNews/API). Under development.
+
+# Installation
+
+`gem install hn_api` or add `gem 'hn_api'` to your `Gemfile` and `bundle`.
+
+# Configuration
+
+Currently, the Hacker News API is read-only and does not require an API key. The API is based at https://hacker-news.firebaseio.com, and is currently on version `v0`.
+
+```ruby
+# For now, this one line is all you need to configure
+@client = HN::Client.new
+
+# In the event of a version change, you can set the `api_url` like so
+@client.configure do |config|
+  config.api_url = 'https://hacker-news.firebaseio.com/v1/'
+end
+```
 
 # Contributing to hn_api
  
