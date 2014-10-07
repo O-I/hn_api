@@ -1,5 +1,6 @@
 # hn_api
 [![Build Status](https://travis-ci.org/O-I/guardian_api.svg?branch=master)](https://travis-ci.org/O-I/guardian_api)
+[![Coverage Status](https://img.shields.io/coveralls/O-I/hn_api.svg)](https://coveralls.io/r/O-I/hn_api?branch=master)
 
 A Ruby wrapper for [the Hacker News API](https://github.com/HackerNews/API). Under development.
 
