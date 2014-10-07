@@ -11,12 +11,13 @@ module HN
         url: base_url
       }
 
-    Faraday.new(options) do |connection|
-      connection.use Faraday::Request::UrlEncoded
-      connection.use Faraday::Response::RaiseError
-      connection.use Faraday::Response::Mashify
-      connection.use Faraday::Response::ParseJson
-      connection.adapter(Faraday.default_adapter)
+      Faraday.new(options) do |connection|
+        connection.use Faraday::Request::UrlEncoded
+        connection.use Faraday::Response::RaiseError
+        connection.use Faraday::Response::Mashify
+        connection.use Faraday::Response::ParseJson
+        connection.adapter(Faraday.default_adapter)
+      end
     end
   end
 end
