@@ -12,13 +12,15 @@ end
 require 'rake'
 
 require 'jeweler'
+require './lib/hn/version'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "hn_api"
+  gem.version = HN::Version
   gem.homepage = "http://github.com/O-I/hn_api"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby wrapper for the Hacker News API}
+  gem.description = %Q{Ruby client for the Hacker News API}
   gem.email = "hore.rahul@gmail.com"
   gem.authors = ["Rahul Horé"]
   # dependencies defined in Gemfile
@@ -35,7 +37,7 @@ task :default => :spec
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = HN::Version
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "hn_api #{version}"
