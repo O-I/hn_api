@@ -8,7 +8,7 @@ module HN
     def connection
       options = {
         ssl: { verify: false },
-        url: base_url
+        url: api_url
       }
 
       Faraday.new(options) do |connection|
