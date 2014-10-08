@@ -12,7 +12,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rspec'
-require 'webmock'
+require 'webmock/rspec'
 require 'hn_api'
 
 # Requires supporting files with custom matchers and macros, etc,
@@ -26,7 +26,7 @@ end
 WebMock.disable_net_connect!(allow: 'coveralls.io')
 
 def hn_test_client
-  HN.new
+  HN::Client.new
 end
 
 def stub_get(path, options = {})
