@@ -1,3 +1,6 @@
+require 'json'
+require 'hashie'
+
 module HN
   module Request
     def get(path, options = {})
@@ -10,7 +13,12 @@ module HN
       response = connection.send(method) do |request|
         request.url(path, options)
       end
-      response.body
+      prepare(response)
+    end
+
+    def prepare(response)
+      result = JSON.parse(response.body) rescue response.body
+      result.is_a?(Hash) ? Hashie::Mash.new(result) : result
     end
   end
 end

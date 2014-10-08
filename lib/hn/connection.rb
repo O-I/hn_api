@@ -15,8 +15,6 @@ module HN
       Faraday.new(options) do |connection|
         connection.use Faraday::Request::UrlEncoded
         connection.use Faraday::Response::RaiseError
-        connection.use Faraday::Response::Mashify
-        connection.use Faraday::Response::ParseJson
         connection.adapter(Faraday.default_adapter)
       end
     end
