@@ -77,7 +77,8 @@ describe HN::Client do
   end
 
   describe '#top_stories' do
-    before { stub_get 'topstories.json', returns: 'top_stories.json' }
+    before { stub_get 'topstories.json',
+             returns: 'live_data/top_stories.json' }
 
     it 'returns an Array of the current top 100 stories' do
       expect(client.top_stories).to be_an Array
