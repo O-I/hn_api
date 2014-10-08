@@ -23,5 +23,13 @@ module HN
     def top_stories(options = {})
       get('topstories.json', options)
     end
+
+    def max_item(options = {})
+      get('maxitem.json', options)
+    end
+
+    def updates(options = {})
+      get('updates.json', options)
+    end
   end
 end
