@@ -68,7 +68,7 @@ describe HN::Client do
 
     it 'returns a user by unique case-sensitive username' do
       expect(client.user(id).karma).to eq    4186
-      expect(client.user(id).about).to match /∀❒/
+      expect(client.user(id).about).to match /theallbox/
     end
 
     it 'returns a Hashie::Mash' do
