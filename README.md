@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/O-I/guardian_api.svg?branch=master)](https://travis-ci.org/O-I/guardian_api)
 [![Coverage Status](https://img.shields.io/coveralls/O-I/hn_api.svg)](https://coveralls.io/r/O-I/hn_api?branch=master)
 
-A Ruby wrapper for [the Hacker News API](https://github.com/HackerNews/API). Under development.
+A Ruby wrapper for the [Hacker News API](https://github.com/HackerNews/API).
 
 ## Installation
 
@@ -29,7 +29,7 @@ end
 
 Descriptions and examples of the supported actions are below. For a more detailed explanation of available endpoints and an exhaustive list of the properties each response returns, check out the official [Hacker News API documentation](https://github.com/HackerNews/API).
 
-### [Items](https://github.com/HackerNews/API#items)
+### Items [GET /v0/item/#{id}.json](https://github.com/HackerNews/API#items)
 
 Fetches an item (story, comment, poll, etc.) by id. Returns a `Hashie::Mash`.
 
@@ -43,22 +43,22 @@ first_comment = @client.item(comment_ids.first)
 first_comment.text # Oh man you guys, patio11 has generated...
 ```
 
-### [Users](https://github.com/HackerNews/API#users)
+### Users [GET /v0/user/#{id}.json](https://github.com/HackerNews/API#users)
 
 Fetches a user by unique case-sensitive username. Returns a `Hashie::Mash`.
 
 ```ruby
-o_i = @client.user('co_pl_te')
-o_i.karma                  # 4186
-o_i.about.split(?\n).first # Everything to everyone.
-o_i.submitted              # an array of my submitted items' ids (stories, comments, etc.)
+me = @client.user('co_pl_te')
+me.karma                  # 4186
+me.about.split(?\n).first # Everything to everyone.
+me.submitted              # an array of my submitted items' ids (stories, comments, etc.)
 ```
 
-### [Live Data](https://github.com/HackerNews/API#live-data)
+### Live Data
 
 The following endpoints are updated in real-time and will allow you to observe changes in front page ranking, new items, and new profiles.
 
-#### [Top Stories](https://github.com/HackerNews/API#top-stories)
+#### Top Stories [GET /v0/topstories.json](https://github.com/HackerNews/API#top-stories)
 
 Fetches the current top 100 story ids. Returns an `Array`.
 
@@ -66,15 +66,15 @@ Fetches the current top 100 story ids. Returns an `Array`.
 @client.top_stories
 ```
 
-#### [Max Item ID](https://github.com/HackerNews/API#max-item-id)
+#### Max Item ID [GET /v0/maxitem.json](https://github.com/HackerNews/API#max-item-id)
 
-Fetches the current largest item id. Returns a `Fixnum`.
+Fetches the current largest item id. Returns a `String`.
 
 ```ruby
 @client.max_item
 ```
 
-#### [Changed Items and Profiles](https://github.com/HackerNews/API#changed-items-and-profiles)
+#### Changed Items and Profiles [GET /v0/updates.json](https://github.com/HackerNews/API#changed-items-and-profiles)
 
 Fetches item and profile changes. Returns a `Hashie::Mash`.
 
